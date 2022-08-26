@@ -14,7 +14,7 @@ std::list<std::string> splitString(const std::string &str, const std::string &de
     while( (findPosition = str.find(delim, startPosition)) != std::string::npos)
     {
         if (findPosition != startPosition)
-            result.emplace_back(str.substr(startPosition, findPosition - startPosition));
+            result.push_back(str.substr(startPosition, findPosition - startPosition));
 
         startPosition = findPosition + delim.size();
     }
@@ -22,7 +22,7 @@ std::list<std::string> splitString(const std::string &str, const std::string &de
     if (result.size() == 0)
         return {str};
 
-    result.emplace_back(str.substr(startPosition, findPosition - startPosition));
+    result.push_back(str.substr(startPosition, findPosition - startPosition));
 
     return result;
 }
